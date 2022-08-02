@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule, TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
-import { AuthModule } from './../auth';
+import { AreasModule } from 'modules/areas/areas.module';
+import { CompaniesModule } from 'modules/companies/companies.module';
+import { ShipmentsModule } from 'modules/shipments/shipments.module';
 import { CommonModule } from './../common';
 import { ConfigModule, ConfigService } from './../config';
 import { AppController } from './app.controller';
@@ -21,12 +23,15 @@ import { AppService } from './app.service';
           database: configService.get('DB_DATABASE'),
           entities: [__dirname + './../**/**.entity{.ts,.js}'],
           synchronize: configService.get('DB_SYNC') === 'true',
+          logging: true,
         } as TypeOrmModuleAsyncOptions;
       },
     }),
     ConfigModule,
-    AuthModule,
     CommonModule,
+    AreasModule,
+    ShipmentsModule,
+    CompaniesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
