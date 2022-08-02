@@ -71,15 +71,3 @@ $ docker exec -it nest yarn test:cov
 
 Integrated Configuration Module so you can just inject `ConfigService`
 and read all environment variables from `.env` file, which is created automatically by the init script from `.env.example`.
-
-## Swagger
-
-RESTful APIs you can describe with already integrated Swagger.
-To see all available endpoints visit http://localhost/api/docs
-
-## Authentication - JWT
-
-Already preconfigured JWT authentication.
-It's suggested to change current password hashing to something more secure.
-You can start use already working implementation of `Login` and `Registration`
-endpoints, just take a look at [http://localhost/api/docs](http://localhost/api/docs).
